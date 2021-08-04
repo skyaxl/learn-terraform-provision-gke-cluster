@@ -1,11 +1,11 @@
 variable "gke_username" {
   default     = ""
-  description = "gke username"
+  description = "hoffelix"
 }
 
 variable "gke_password" {
   default     = ""
-  description = "gke password"
+  description = "Test@1234"
 }
 
 variable "gke_num_nodes" {
@@ -26,6 +26,10 @@ resource "google_container_cluster" "primary" {
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name
+
+  workload_identity_config {
+    identity_namespace = "hoffelix-kube.svc.id.goog"
+  }
 }
 
 # Separately Managed Node Pool

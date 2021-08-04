@@ -24,3 +24,20 @@ resource "google_compute_subnetwork" "subnet" {
   network       = google_compute_network.vpc.name
   ip_cidr_range = "10.10.0.0/24"
 }
+
+
+resource "google_compute_firewall" "default" {
+  name    = "test-firewall"
+  network = "${var.project_id}-vpc"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["31111", "80","8080"]
+  }
+
+  source_ranges = [ "0.0.0.0/0" ]
+}
+
+resource "google_compute_address" "static" {
+   name = "helloweb-ip"
+}

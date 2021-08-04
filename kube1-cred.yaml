@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  creationTimestamp: "2021-07-30T20:13:12Z"
+  name: kube1
+  namespace: default
+  resourceVersion: "61095"
+  uid: 0549718a-a2aa-4e11-afd5-c1777180b2b3
+secrets:
+- name: kube1-token-mszsf
+
+#kubectl get secret kube1-token-mszsf -o yamll
